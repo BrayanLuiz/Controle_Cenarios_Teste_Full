@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Controle de Cenários de Teste</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Swatch:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Controle de Cenários de Teste</h1>
+    <div class="header-bar">
+      <div class="logo-area">
+        <img src="IMG/Logo Teia - Branco.png" alt="Logo Teia" class="logo-teia">
+      </div>
+      <h1>Controle de Cenários de Teste</h1>
+    </div>
     <div class="actions">
-      <button id="addTest">Adicionar Cenário</button>
-      <button id="export-xlsx">Exportar para Excel</button>
+      <button id="addTest">Nova Linha</button>
+      <button id="export-xlsx">
+        <span class="icon-download" aria-hidden="true"></span>
+        Exportar Excel
+      </button>
     </div>
     <table id="testTable">
       <thead>
@@ -31,48 +38,6 @@
         <!-- Preenchido via JS -->
       </tbody>
     </table>
-  </div>
-
-  <!-- Modal para detalhes/edição -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModal">&times;</span>
-      <h2 id="modalTitle">Detalhes do Teste</h2>
-      <form id="testForm" autocomplete="off">
-        <input type="hidden" id="testIndex">
-        <label>ID do Teste <input type="text" id="testId" required></label>
-        <label>Etapa do cenário <input type="text" id="testStep"></label>
-        <label>Descrição <input type="text" id="testDescription"></label>
-        <label>Tipo
-          <select id="testType">
-            <option value="positive">Positivo</option>
-            <option value="negative">Negativo</option>
-          </select>
-        </label>
-        <label>Prioridade <input type="text" id="testPriority"></label>
-        <label>Status
-          <select id="testStatus">
-            <option value="not-started">Não iniciado</option>
-            <option value="in-progress">Em andamento</option>
-            <option value="completed">Concluído</option>
-            <option value="blocked">Bloqueado</option>
-            <option value="deferred">Adiado</option>
-          </select>
-        </label>
-        <label>Responsável <input type="text" id="testAssignee"></label>
-        <hr>
-        <label>Pré-requisitos <textarea id="testPrereq" class="plain-text"></textarea></label>
-        <label>Ação no SAP Fiori <textarea id="testSapAction" class="plain-text"></textarea></label>
-        <label>Resultado esperado SAP <textarea id="testSapExpected" class="plain-text"></textarea></label>
-        <label>Validação na API <textarea id="testApiValidation" class="plain-text"></textarea></label>
-        <label>Resultado esperado API <textarea id="testApiExpected" class="plain-text"></textarea></label>
-        <label>Mais detalhes <textarea id="testMoreDetails" class="plain-text"></textarea></label>
-        <div class="modal-actions">
-          <button type="submit">Salvar</button>
-          <button type="button" id="cancelModal">Cancelar</button>
-        </div>
-      </form>
-    </div>
   </div>
   <script src="script.js"></script>
 </body>
